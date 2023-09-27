@@ -1,0 +1,282 @@
+*{
+    text-decoration: none;
+}
+
+body {
+    background-color: #fff;
+    transition: background-color 0.5s ease;
+    font-family: "Montserrat";
+}
+
+
+
+
+
+
+
+
+header{
+    height: 10vh;
+}
+
+.title{
+    display: inline-block;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 15px;
+    transition: .7s ease;
+
+    font-size: 50px;
+    font-weight: 800;
+}
+
+switch-thame{
+    display: inline-block;
+    margin-right: auto;
+}
+
+main {
+
+    height: 88vh;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 15px ;
+    margin: 0 15px ;
+}
+
+.side-chat {
+    background-color: #C9EDFF;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+    overflow: auto;
+    overflow-x: hidden
+}
+
+.main-chat{
+    background-color: #a545ff48;
+    border: rgb(189, 171, 255) 2.5px solid;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+    overflow: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.uppercase {
+    text-transform: uppercase;
+}
+.btn {
+    display: inline-block;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    transition: all 100ms ease-in;
+    cursor: pointer;
+    background: #7f8ff4;
+    color: #fff;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+    border-radius: 99px;
+    padding: 12px 36px;
+    margin-left: -135px;
+    transition: transform 0.5s, opacity 0.25s;
+}
+
+.btn:hover {
+    background: #4861ec;
+    transform: translateY(-4px);
+    box-shadow: 0px 15px 20px rgba(75, 75, 75, 0.4);
+    
+}
+.btn:active {
+    transition: all 50ms ease-in;
+    background: #7f8ff4;
+    box-shadow: 0 0 12px #3fe989;
+    transform: translateY(-1px);
+}
+
+
+
+.message {
+    display: inline-block;
+    align-items: center;
+    border-radius: 99px;
+    width: 600px;
+    background: #ffffff;
+    color: #d4d4d4;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    padding: 22px 18px;
+    transition: all 150ms ease-in;
+}
+
+.message:focus{
+box-shadow: 0px 10px 20px #c9edff6c;
+
+}
+
+.container__item{
+    margin: 0 auto;
+    align-items: center;
+}
+
+
+
+.chat-data{
+
+    height: 88.5%;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 830px) {
+    main {
+        grid-template-columns: 1fr; /* Chỉ có một cột */
+    }
+    
+    .side-chat {
+        display: none; /* Ẩn phần tử thứ 1 */
+    }
+
+    .main-chat {
+        width: auto; /* Phần tử thứ 2 có chiều rộng tự động */
+    }
+    .title{
+        margin-top: 15px;
+    }
+}
+
+
+
+#toggle_checkbox
+{
+    display: none;
+}
+
+toggle_checkbox::before{
+    display: inline-block;
+    content: "dark mode";
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+label
+{
+    user-select: none;
+    display: block;
+    position: absolute;
+    top: 50%;
+    top: 25px;
+    right: 15px;
+    width: 116px;
+    height: 56px;
+    margin-right: auto; 
+    margin-top: 20px;
+    background-color: #77b5fe;
+    border-radius: 56px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: 0.3s ease background-color;
+    overflow: hidden;
+}
+
+#star
+{
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    width: 30px;
+    height: 30px;
+    background-color: #fafd0f;
+    transform: scale(1);
+    border-radius: 50%;
+    transition: 0.3s ease top, 0.3s ease left, 0.3s ease transform, 0.3s ease background-color;
+    z-index: 1;
+}
+
+#star-1
+{
+    position: relative;
+}
+
+#star-2
+{
+    position: absolute;
+    transform: rotateZ(36deg);
+}
+
+.star
+{
+    top: 0;
+    left: -7px;
+    font-size: 54px;
+    line-height: 28px;
+    color: #fafd0f;
+    transition: 0.3s ease color;
+}
+
+#moon
+{
+    position: absolute;
+    bottom: -52px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s ease bottom;
+}
+
+#moon:before
+{
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: -17px;
+    width: 40px;
+    height: 40px;
+    background-color:#03a9f4;
+    border-radius: 50%;
+    transition: 0.3s ease background-color;
+}
+
+#toggle_checkbox:checked + label
+{
+    background-color: #000;
+}
+
+#toggle_checkbox:checked + label #star
+{
+    top: 3px;
+    left: 64px;
+    transform: scale(0.3);
+    background-color: yellow;
+}
+
+#toggle_checkbox:checked + label .star
+{
+    color: yellow;
+}
+
+#toggle_checkbox:checked + label #moon
+{
+    bottom: 8px;
+}
+
+#toggle_checkbox:checked + label #moon:before
+{
+    background-color: #000;
+}
+
+
