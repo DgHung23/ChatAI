@@ -4,9 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,800&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,800&display=swap"
+            rel="stylesheet"
+        />
 
         <link rel="stylesheet" href="./assets/reset.css" />
         <link rel="stylesheet" href="./assets/styles.css" />
@@ -16,11 +19,11 @@
     <body id="body">
         <header class="header">
             <h1 id="title" class="title">Chat GPT</h1>
-            <div class="switch-thame">  <!--  -->
+            <div class="switch-thame">
+                <!--  -->
                 <input type="checkbox" id="toggle_checkbox" />
 
                 <label for="toggle_checkbox">
-
                     <div id="star">
                         <div class="star" id="star-1">★</div>
                         <div class="star" id="star-2">★</div>
@@ -30,23 +33,40 @@
             </div>
         </header>
         <main>
-            <section id="side-chat" class="side-chat">
-
-            </section>
+            <section id="side-chat" class="side-chat"></section>
             <section id="main-chat" class="main-chat">
-                
-                <div class="chat-data test"></div>
+                <div id="chat-data" class="chat-data"></div>
 
                 <div class="container__item">
-                    <form class="form">
-                        <input type="text" id="message-box" class="message" placeholder="Send a message..." />
-                        <button type="button" class="btn-white btn-animate btn uppercase">Send</button>
-                    </form>
+                    <!-- <form class="form"> -->
+                        <input
+                            type="text"
+                            id="message-box"
+                            class="message"
+                            placeholder="Send a message..."
+                            onkeydown="handleKeyDown(event)"
+                        />
+                        <button
+                            type="button"
+                            class="btn-white btn-animate btn uppercase"
+                            id="send-btn"
+                        >
+                            Send
+                        </button>
+                    <!-- </form> -->
                 </div>
-                
             </section>
         </main>
         <footer></footer>
+        <div id="chatbox"></div>
+
+        <input
+            type="text"
+            id="message"
+            placeholder="Nhập tin nhắn"
+            onkeydown="handleKeyDown(event)"
+        />
+        <button onclick="sendMessage()">Gửi</button>
         <script src="./main.js"></script>
     </body>
 </html>

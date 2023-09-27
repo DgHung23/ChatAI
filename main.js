@@ -1,36 +1,47 @@
 const message_box = document.getElementById('message-box');
-
+const sendButton = document.getElementById("send-btn");
 // Hàm gửi tin nhắn
 function sendMessage() {
-    var messageInput = document.getElementById("message");
-    var message = messageInput.value;
-
+    var message = message_box.value;
     if (message !== "") {
         addMessage("Bạn", message);
 
         // Xử lý tin nhắn ở đây
 
-        messageInput.value = "";
+        message_box.value = "";
     }
 }
 
 // Hàm xử lý phím nhấn
 function handleKeyDown(event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 ) {
         // Phím Enter
         sendMessage();
     }
+    sendButton.addEventListener("click", function() {
+        sendMessage();
+    });
 }
 
 // Hàm thêm tin nhắn vào khung chat
 function addMessage(sender, message) {
-    var chatbox = document.getElementById("chatbox");
-    var newMessage = document.createElement("p");
-    newMessage.style.textAlign = "right"; // Căn phải
-    newMessage.innerHTML = "<strong>" + sender + ":</strong> " + message;
+    var chatbox = document.getElementById("chat-data");
+    var newMessage = document.createElement("div");
+    if (sender == "Bạn"){
+        newMessage.style.textAlign = "right"; // Căn phải
+    } else{newMessage.style.textAlign = "left"; }
+    
+    newMessage.style.color = "#2b80ff"; // Căn phải
+    newMessage.style.maxWidth = "400px";
+    newMessage.style.fontSize = "18px";
+    newMessage.style.marginLeft = "auto";
+    newMessage.innerHTML = "<strong style=\" display :inline-block;padding-bottom: 10px; font-size: 25px; color: #DC143C\" >" + sender + ":</strong> "+ "<br>" + message;
     chatbox.appendChild(newMessage);
     chatbox.scrollTop = chatbox.scrollHeight;
+    console.log(newMessage);
 }
+
+
 
 
 // ---------------change thame--------------------------------
