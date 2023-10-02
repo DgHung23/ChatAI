@@ -6,24 +6,12 @@
     --thame-color: black;
 }
 
-.black{
-    color: #000;
-}
-.white{
-    color: #fff;
-}
 
 body {
     background-color: #fff;
     transition: background-color 0.5s ease;
     font-family: "Montserrat";
 }
-
-
-
-
-
-
 
 
 header{
