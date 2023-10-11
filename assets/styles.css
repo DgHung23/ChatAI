@@ -136,6 +136,30 @@ box-shadow: 0px 10px 20px #c9edff6c;
 
 
 
+/* -------------------------------chat side-------------------------- */
+.chat-lish{
+    margin: 0 auto;
+    width: 240px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+.chat-items {
+    color: #000;
+    font-weight: 600;
+    font-size: 25px;
+    padding: 10px 10px 10px 20px;
+    display: block;
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all .5s;
+}
 
 
 

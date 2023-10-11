@@ -74,7 +74,9 @@ const checkbox = document.getElementById('toggle_checkbox');
 const targetElement1 = document.getElementById('body');
 const targetElement2 = document.getElementById('side-chat');
 const targetElement3 = document.getElementById('main-chat');
+const targetElement4 = document.querySelectorAll(".chat-items");
 const title = document.getElementById('title');
+console.log(targetElement4);
 // Đặt sự kiện "change" cho checkbox
 checkbox.addEventListener('change', function() {
     // Kiểm tra nếu checkbox được kiểm tra (checked)
@@ -85,6 +87,10 @@ checkbox.addEventListener('change', function() {
         targetElement2.style.backgroundColor = '#202E3A';
         targetElement3.style.border = 'none';
         targetElement3.style.backgroundColor = '#36373C';
+        for (var i = 0; i < targetElement4.length; i++) {
+            targetElement4[i].style.backgroundColor = "#36373C";
+            targetElement4[i].style.color = "#fff";
+        }
         message_box.style.backgroundColor = '#40414F';
     } else {
         // Đổi màu nền của element mục tiêu về mặc định nếu checkbox không được kiểm tra
@@ -93,6 +99,12 @@ checkbox.addEventListener('change', function() {
         targetElement2.style.backgroundColor = '';
         targetElement3.style.border = '';
         targetElement3.style.backgroundColor = '';
+        for (var i = 0; i < targetElement4.length; i++) {
+            targetElement4[i].style.backgroundColor = "";
+            targetElement4[i].style.color = "";
+        }
+
         message_box.style.backgroundColor = '';
+
     }
 });
