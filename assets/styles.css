@@ -131,6 +131,7 @@ box-shadow: 0px 10px 20px #c9edff6c;
 .chat-data{
     padding: 15px;
     height: 88.5%;
+    overflow-y: scroll;
 }
 
 

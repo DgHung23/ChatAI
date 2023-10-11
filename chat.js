@@ -1,8 +1,29 @@
 const message_box = document.getElementById('message-box');
 const sendButton = document.getElementById("send-btn");
 // Hàm gửi tin nhắn
+
+
+
+var callAPI = (text)=>{
+
+    // using built in JSON utility package turn object to string and store in a variable
+    var raw = JSON.stringify({"q":text});
+    // create a JSON object with parameters for API call and store in a variable
+    var requestOptions = {
+        method: 'GET',
+        body: raw,
+    };
+    // make API call with parameters and use promises to get response
+    fetch("http://127.0.0.1:8000/chat", requestOptions)
+    .then(response => response.text())
+    .then(result => alert(JSON.parse(result).body))
+    .catch(error => console.log('error', error));
+}
+
+
 function sendMessage() {
     var message = message_box.value;
+    callAPI(message);
     if (message !== "") {
         addMessage("Bạn", message);
 
@@ -29,12 +50,16 @@ function addMessage(sender, message) {
     var newMessage = document.createElement("div");
     if (sender == "Bạn"){
         newMessage.style.textAlign = "right"; // Căn phải
-    } else{newMessage.style.textAlign = "left"; }
+        newMessage.style.marginLeft = "auto";
+    } else{
+        newMessage.style.textAlign = "left"; 
+        newMessage.style.marginRight = "auto";
+
+    }
     
     newMessage.style.color = "#2b80ff"; // Căn phải
     newMessage.style.maxWidth = "400px";
     newMessage.style.fontSize = "18px";
-    newMessage.style.marginLeft = "auto";
     newMessage.innerHTML = "<strong style=\" display :inline-block;padding-bottom: 10px; font-size: 25px; color: #DC143C\" >" + sender + ":</strong> "+ "<br>" + message;
     chatbox.appendChild(newMessage);
     chatbox.scrollTop = chatbox.scrollHeight;
